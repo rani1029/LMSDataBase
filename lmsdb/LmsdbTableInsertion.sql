@@ -23,4 +23,33 @@ insert into Fellowship_Candidates values ('nick', 'jim', 'jams', 'ngn@gmail.com 
 'photo_path3.jpg', '2019-11-13', 'present', 1, 'no', 'yes','Verified', 'Good');
 
 
+=====================================================================================================================================================================================================
+-- 3 Candidates_Personal_det_check table
 
+select * from Candidates_Personal_det_check;
+
+insert into Candidates_Personal_det_check values(8,'engg','no','2021-06-13',1,'2021-06-13',01);
+insert into Candidates_Personal_det_check values(8,'engg','no','2021-06-13',1,'2021-06-13',01),
+(9,'engg','no','2021-06-13',1,'2021-06-13',01),(10,'IT','no','2021-06-13',1,'2021-06-13',01),
+(11,'engg','yes','2021-06-13',1,'2021-06-13',01);
+
+=============================================================================================================================================================================
+-- 4 candidate_bank_details table 
+
+select * from candidate_bank_det;
+
+insert into candidate_bank_det values(8,'Rahul',345672187,1,'AF456743K',1,'jh8876548',1,765432456,1,'2021-06-13',1),
+(9,'Rahul',345672187,1,'AF456743K',1,'jh8876348',1,76656456,1,'2021-06-13',1),
+(10,'nick',876542187,1,'FGF6743K',1,'mh76576548',1,87543245761,1,'2021-06-13',1),
+(11,'isha',0987662187,1,'AF456743K',1,'jh8876548',1,76542456,1,'2021-06-13',1);
+
+====================================================================================================================================================================================================================
+
+ ---5 candidate_qualification  table 
+
+ select * from candidate_qualification;
+
+insert into candidate_qualification values(8,1,'b.tech',1,'csc',0,2020,1,80.9,90.8,1,'bridgelabz',1,3,1,'softskill',0,'2021-06-13',1);
+insert into candidate_qualification values(9,1,'b.tech',1,'csc',0,2020,1,98.9,90.8,1,'srm institute',1,6,1,'java',0,'2021-06-13',2),
+(10,1,'b.tech',1,'csc',0,2020,1,78.9,90.8,1,'bmm college',1,3,1,'data science',0,'2021-06-13',3),
+(11,1,'b.tech',1,'csc',0,2020,1,95.9,90.8,1,'bridgelabz',1,7,0,'react',0,'2021-06-13',1);
