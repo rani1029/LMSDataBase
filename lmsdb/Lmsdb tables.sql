@@ -211,3 +211,46 @@ cur_status char DEFAULT NULL,
 creator_stamp date DEFAULT NULL,
 creator_user int DEFAULT NULL
 )
+
+-- 13 maker program table
+
+CREATE TABLE Maker_Program(
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+tech_stack_id int DEFAULT NULL FOREIGN KEY REFERENCES Tech_Stack(id),
+tech_type_id int NOT NULL FOREIGN KEY REFERENCES tech_type(id),
+program_name varchar(255) NOT NULL,
+program_type varchar(10) DEFAULT NULL,
+program_link text DEFAULT NULL,
+is_program_approved int,
+description varchar(500) DEFAULT NULL,
+status int DEFAULT 1,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL,
+);
+
+--14 app parameters program
+
+CREATE TABLE App_parameters (
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+key_type varchar(20) NOT NULL,
+key_value varchar(20) NOT NULL,
+key_text varchar(80) DEFAULT NULL,
+cur_status char(1) DEFAULT NULL,
+lastupd_user int DEFAULT NULL,
+lastupd_stamp date DEFAULT NULL,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL,
+seq_num int DEFAULT NULL,
+);
+
+--15 lab table
+
+CREATE TABLE Lab(
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+name varchar(50) DEFAULT NULL,
+location varchar(50) DEFAULT NULL,
+address  varchar(255) DEFAULT NULL,
+status int DEFAULT 1,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL,
+);
