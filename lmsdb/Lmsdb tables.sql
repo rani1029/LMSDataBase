@@ -254,3 +254,36 @@ status int DEFAULT 1,
 creator_stamp date DEFAULT NULL,
 creator_user int DEFAULT NULL,
 );
+
+--16 mentor table
+
+CREATE TABLE mentor(
+id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+lab_id int NOT NULL FOREIGN KEY REFERENCES lab(id),
+name varchar(100) DEFAULT NULL,
+mentor_type varchar(20) DEFAULT NULL,
+status int DEFAULT 1,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL,
+);
+
+-- 17 mentor ideation map table
+
+CREATE TABLE mentor_ideation_map(
+id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+mentor_id int NOT NULL FOREIGN KEY REFERENCES mentor(id),
+status int DEFAULT 1,
+creator_stamp datetime DEFAULT NULL,
+creator_user int DEFAULT NULL
+);
+
+--18 mentor tech stack table 
+
+CREATE TABLE Mentor_techstack(
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+mentor_id int NOT NULL FOREIGN KEY REFERENCES mentor(id),
+tech_stack_id int NOT NULL FOREIGN KEY REFERENCES Tech_stack(id),
+status int DEFAULT 1,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL
+)
