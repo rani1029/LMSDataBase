@@ -124,14 +124,45 @@ creator_user int DEFAULT NULL
  select * from candidate_qualification;
 
  
- --
+ --6 candidates_education_details_check
+
 CREATE TABLE candidates_education_details_check (
 id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 candidate_id int  NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
 field_name varchar(255) NOT NULL,
 is_verified int DEFAULT NULL,
-lastupd_stamp datetime DEFAULT NULL,
+lastupd_stamp date DEFAULT NULL,
 lastupd_user int DEFAULT NULL,
-creator_stamp datetime DEFAULT NULL,
+creator_stamp date DEFAULT NULL,
 creator_user int DEFAULT NULL
-)
+);
+
+ select * from candidates_education_details_check;
+
+ --7 candidate document details table
+
+ CREATE TABLE candidate_docs(
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+candidate_id int  NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
+doc_type varchar(20) DEFAULT NULL,
+doc_path nvarchar(500) DEFAULT NULL,
+status int DEFAULT 1,
+creator_stamp datetime DEFAULT NULL,
+creator_user int DEFAULT NULL,
+);
+
+select * from candidate_docs;
+
+--8 user detail table 
+
+CREATE TABLE User_Details (
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+email varchar(50) UNIQUE NOT NULL,
+first_name varchar(200) NOT NULL,
+last_name varchar(100) NOT NULL,
+password varchar(15) NOT NULL,
+contact_number bigint NOT NULL,
+verified bit DEFAULT NULL,
+);
+
+select * from User_Details;
