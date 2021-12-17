@@ -166,3 +166,48 @@ verified bit DEFAULT NULL,
 );
 
 select * from User_Details;
+
+-- 9 user roles table
+
+CREATE TABLE user_roles (
+user_id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+role_name varchar(100)
+);
+
+select * from user_roles;
+
+--10 company table
+
+CREATE TABLE company(
+id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+name nvarchar(200) NOT NULL,
+address varchar(150) DEFAULT NULL,
+location varchar(100) DEFAULT NULL,
+status int DEFAULT 1,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL
+);
+
+select * from company;
+
+--11 maker program table 
+
+CREATE TABLE Tech_stack (
+id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+tech_name nvarchar(50) NOT NULL,
+image_path nvarchar(500) DEFAULT NULL,
+frameworkcur_status text DEFAULT NULL,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL
+);
+
+select * from Tech_stack;
+--12 tech stack table 
+
+CREATE TABLE tech_type (
+id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+type_name varchar(50) NOT NULL,
+cur_status char DEFAULT NULL,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL
+)
