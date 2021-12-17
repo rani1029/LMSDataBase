@@ -62,3 +62,18 @@ remark varchar(150) DEFAULT NULL,
 );
 
 select * from Fellowship_Candidates;
+
+--Candidates_Personal_det_check table
+
+CREATE TABLE Candidates_Personal_det_check (
+id int identity(1,1) primary key NOT NULL,
+candidate_id  int NOT NULL FOREIGN KEY REFERENCES fellowship_candidates(id),
+field_name varchar(255) NOT NULL,
+is_verified varchar(10) DEFAULT NULL,
+lastupd_stamp date DEFAULT NULL,
+lastupd_user int DEFAULT NULL,
+creator_stamp date DEFAULT NULL,
+creator_user int DEFAULT NULL
+);
+
+select * from Candidates_Personal_det_check;
