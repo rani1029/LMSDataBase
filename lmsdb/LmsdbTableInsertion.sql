@@ -53,3 +53,13 @@ insert into candidate_qualification values(8,1,'b.tech',1,'csc',0,2020,1,80.9,90
 insert into candidate_qualification values(9,1,'b.tech',1,'csc',0,2020,1,98.9,90.8,1,'srm institute',1,6,1,'java',0,'2021-06-13',2),
 (10,1,'b.tech',1,'csc',0,2020,1,78.9,90.8,1,'bmm college',1,3,1,'data science',0,'2021-06-13',3),
 (11,1,'b.tech',1,'csc',0,2020,1,95.9,90.8,1,'bridgelabz',1,7,0,'react',0,'2021-06-13',1);
+
+=========================================================================================================================================================================================================================
+--6 candidates_education_details_check
+
+select * from candidates_education_details_check;
+
+insert into candidate_qualification values(8,'engg',1,'2021-06-13',1,'2019-08-13',1),
+(9,'engg',0,'2021-06-13',1,'2019-08-13',1),
+(10,'iT',1,'2021-06-13',1,'2019-08-13',1),
+(11,'engg',1,'2021-06-13',1,'2019-08-13',1);
