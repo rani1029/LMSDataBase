@@ -40,3 +40,19 @@ GO;
 exec Update_Candidates @lab='.netdeveloper',@fname='Rani';
 
 =======================================================================================================================================================================
+--- create stored procedure with output parameter
+ CREATE PROCEDURE  Getsalarydetails
+@Salary int,
+@maxSalary int OUTPUT
+AS 
+SELECT @maxSalary=MAX(parent_annual_sal) FROM Fellowship_Candidates
+SELECT * FROM Fellowship_Candidates
+WHERE parent_annual_sal <@Salary;
+
+---execute stored procedure with output parameter
+
+DECLARE	 @maximumsalary int
+            EXEC	[Getsalarydetails]
+                    @Salary = 20000,
+                   @maxSalary =@maximumsalary OUTPUT
+            SELECT @maximumsalary AS ParentMaximumSalary
