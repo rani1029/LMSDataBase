@@ -170,9 +170,11 @@ select * from User_Details;
 -- 9 user roles table
 
 CREATE TABLE user_roles (
-user_id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-role_name varchar(100)
-);
+user_id int NOT NULL FOREIGN KEY REFERENCES User_Details(id),
+role_name varchar(100));
+
+
+drop table user_roles;
 
 select * from user_roles;
 
