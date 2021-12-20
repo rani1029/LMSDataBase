@@ -23,9 +23,25 @@ from Fellowship_Candidates full outer join Candidate_Bank_Det on Fellowship_Cand
 order by Fellowship_Candidates.first_name;
 
 --aggregate function
+--avg
 
-select count(*) notprovided
-from Fellowship_Candidates.email
-where parent_annual_sal=0;
+select AVG(parent_annual_sal) avgsalary
+from Fellowship_Candidates;
+
+---count
+
+SELECT
+    COUNT(*) count
+FROM
+    Fellowship_Candidates
+WHERE
+    parent_annual_sal > 40000;
+
+----max
+
+select MAX(id) maxsalary
+ from Fellowship_Candidates;
+
+
 
 
