@@ -67,3 +67,30 @@ select dbo.getcandidate(first_name) as candidatename from Fellowship_Candidates;
  select email from getcandidates();
 
  ==============================================================================================================================================================================
+ ----scalar function 
+Create function UsernameUpperCase(@name varchar)   
+ returns varchar(50)  
+  As   
+  Begin  
+Declare @UpperVar varchar(100)  
+Select  @UpperVar = Upper(@name) from dbo.CpuLogData    
+return isnull( @UpperVar , '-')  
+--isnull provide alternative otput if result is null
+ End 
+
+ select [dbo].UsernameUpperCase('ismpraful@gmail.com') from CpuLogData;
+
+ =====================================================================================================================================================================================================
+
+ --inline table valued function
+
+ CREATE FUNCTION GetUserName(@name varchar(50))   
+returns table return   
+SELECT technology,user_name,Cpu_Working_Time FROM dbo.CpuLogData where user_name = @name  
+ ;
+ --implement function
+ select * from dbo.GetUserName('ismpraful@gmail.com');
+
+ ============================================================================================================================================================================================
+
+
