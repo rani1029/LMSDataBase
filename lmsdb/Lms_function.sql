@@ -68,6 +68,7 @@ select dbo.getcandidate(first_name) as candidatename from Fellowship_Candidates;
 
  ==============================================================================================================================================================================
  ----scalar function 
+
 Create function UsernameUpperCase(@name varchar)   
  returns varchar(50)  
   As   
@@ -83,6 +84,8 @@ return isnull( @UpperVar , '-')
  =====================================================================================================================================================================================================
 
  --inline table valued function
+ --- table structure return by function is defined in select statement of function
+ -- no begin end statement
 
  CREATE FUNCTION GetUserName(@name varchar(50))   
 returns table return   
@@ -91,6 +94,31 @@ SELECT technology,user_name,Cpu_Working_Time FROM dbo.CpuLogData where user_name
  --implement function
  select * from dbo.GetUserName('ismpraful@gmail.com');
 
- ============================================================================================================================================================================================
+ ===================================================================================================================================================================================================
+
+ --multistatement table valued function
+
+ CREATE FUNCTION salarycomparasion(@salary bigint)
+         
+RETURNS 
+@OutputTable TABLE
+(
+       email varchar(20),name varchar(20),status varchar(20)
+)
+AS
+BEGIN
+     insert into @OutputTable
+  select first_name,AVG(parent_annual_sal) AS avg from Fellowship_Candidates;
+
+  UPDATE @OutputTable
+            SET Status = 
+            CASE WHEN avg > @salary THEN 'less than avg'
+            ELSE 'greater than avg'
+            END
+
+RETURN
+END
+
+
 
 
