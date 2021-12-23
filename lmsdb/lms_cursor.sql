@@ -52,5 +52,22 @@ close cursorjoinsTable
 
 --Deallocate the cursor
 deallocate cursorjoinsTable
+===================================================================================================================================================================
+--dynamic cursor
+--changes reflect after open cursor
+DECLARE tableCursor CURSOR DYNAMIC
+FOR
+select candidate_id,field_name from Candidates_Personal_det_check;
+ 
+OPEN  tableCursor;
+DELETE FROM Candidates_Personal_det_check WHERE candidate_id=10;
+select * from Candidates_Personal_det_check;
+fetch next from tableCursor;
+fetch relative 2 from tableCursor;
+
+CLOSE tableCursor;
+
+DEALLOCATE tableCursor;
+
 
 
