@@ -60,6 +60,7 @@ FOR
 select candidate_id,field_name from Candidates_Personal_det_check;
  
 OPEN  tableCursor;
+
 DELETE FROM Candidates_Personal_det_check WHERE candidate_id=10;
 select * from Candidates_Personal_det_check;
 fetch next from tableCursor;
@@ -68,6 +69,30 @@ fetch relative 2 from tableCursor;
 CLOSE tableCursor;
 
 DEALLOCATE tableCursor;
+============================================================================================================================================================
+
+--key set cursor
+--it creates a list of unique values in the tempdb database. These values are called keyset. 
+--Every keyset uniquely identifies a single row in the result set
+declare key_cursor cursor  
+
+keyset for   
+SELECT User_Details.first_name,User_Details.email,user_roles.role_name
+FROM User_Details
+FULL OUTER JOIN user_roles
+ON User_Details.id = user_roles.user_id;
+; 
+
+open key_cursor  
+
+fetch First from key_cursor  
+
+fetch next from key_cursor
+
+close key_cursor
+
+deallocate key_cursor
+
 
 
 
