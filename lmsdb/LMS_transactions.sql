@@ -13,14 +13,7 @@ BEGIN
 	END TRY
 	BEGIN CATCH
 		-- report exception----
-		select
-		ERROR_NUMBER() AS ErrorNumber  
-        ,ERROR_SEVERITY() AS ErrorSeverity  
-        ,ERROR_STATE() AS ErrorState  
-        ,ERROR_LINE () AS ErrorLine  
-        ,ERROR_PROCEDURE() AS ErrorProcedure  
-        ,ERROR_MESSAGE() AS ErrorMessage;
-		 
+		
 		-- Test if the transaction is uncommittable.  
 		IF (XACT_STATE()) = -1  
 		BEGIN  
