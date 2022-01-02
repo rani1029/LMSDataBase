@@ -1,10 +1,19 @@
-select 
-	SUM(CASE WHEN Fellowship_Candidates.birth_date IS NOT NULL THEN 1 ELSE 0 END) as sum_Per,
-	max(ISNULL(Fellowship_Candidates.parent_annual_sal,0)) AS avg_difference
+--avg salary with having hired lab  for more than one id 
+ 
+select Fellowship_Candidates.hired_lab,
+		avg(parent_annual_sal) AS avgsalary
 From Fellowship_Candidates
 Inner join Candidate_Bank_Det ON Fellowship_Candidates.id = Candidate_Bank_Det.candidate_id
-Inner join User_Details on Fellowship_Candidates.first_name=User_Details.first_name
+Inner join Candidates_Personal_det_check on Fellowship_Candidates.id= Candidates_Personal_det_check.candidate_id 
+group by Fellowship_Candidates.hired_lab
+having COUNT(Fellowship_Candidates.hired_lab)>1;
 
-group by Fellowship_Candidates.degree
- HAVING COUNT(Fellowship_Candidates.id) > 2;
+-- query to find first name and dgree name if particular row exists
+--exists()
+
+select Fellowship_Candidates.first_name,candidate_qualification.degree_name
+from Fellowship_Candidates inner join candidate_qualification on 
+Fellowship_Candidates.id=candidate_qualification.candidate_id
+where  exists (select candidate_qualification.is_degree_name_verified from candidate_qualification inner join 
+Fellowship_Candidates on candidate_qualification.candidate_id=Fellowship_Candidates.id where candidate_qualification.is_degree_name_verified=1);
 
